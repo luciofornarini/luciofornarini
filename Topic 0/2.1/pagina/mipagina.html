@@ -1,0 +1,79 @@
+<DOCTYPE html>
+<!--activa las funciones generales para todos los navegadores -->
+<html lang="es">
+	<head>
+    	<title> Este es el t&iacute;tulo del documento</title>
+        <!--especifica el titulo del documento 
+        	si queremos colocar un acento se coloca asi &Iacute;-->
+    	<meta charset="utf-8"/>
+        <!-- definicion del tipo de caracteres que vamos a usar -->
+		<meta name="description" content="Ejemplo HTML5" />       
+		<!--los usuarios que busquen nuestra pagina en google la van a encontrar por este nombre-->
+        <meta name="keywords" content="HTML, CSS3, JavaScript" />
+        <!--etiquetas que tienen relacion con nuestro documento, se separan con comas (palabras claves para facilitar la busqueda de nuestro sitio)-->
+        <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <!-- sirve para enlazar archivos externos
+        rel significa relacion, y stylesheet hoja de estilo-->
+    </head>
+    <body>
+    	<div id="agrupar">
+            <header id="cabecera">
+                <h1>Este es el t&iacute;tulo principarl del sitio web</h1>
+                <!-- el header es el titulo del sitio
+                <h1> etiquetas para definir titulos, (h1, h2, h3, etc) -->
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li>principal</li>
+                    <li>fotos</li>
+                    <li>videos</li>
+                    <li>contactos</li>
+                </ul>
+            <!-- las etiquetas ul definen la lista, y las etiquetas li defines los elementos de la lista-->
+            </nav>
+            <section id="seccion">
+            <!-- define una seccion de informacion principal -->
+                Esto es una secc&iacute;n
+                <article = id="article">
+                <!-- contiene informacion independiente. Dentro de un article puedo crear otro header, otro footer, etc -->	
+                	<header>
+                    	<hgroup>
+                        	<h1>Titulo mensaje 1</h1>
+                            <h2>Subtitulo mensaje 2</h2>
+                        </hgroup>
+                        <time id="time" datetime="2014-12-08" pubdate>Publicado 29-08-2014</time>
+                    </header>    
+                    Este es el texto del primer mensaje
+                    <figure>
+                        <img class="mediana" src="images\depto.jpg">
+                        <figcaption = id="figcaption">
+                            Este es el departamento
+                        </figcaption>
+                    </figure>                      	
+                    <p id="articulo">Esto es un art&iacute;culo</p>
+                    <footer>
+                    <p>Comentarios</p>
+                    </footer>
+                </article>
+                <article = id="article">
+                	<header>
+                    	<hgroup>
+                			<h1>El mensaje 2</h1>
+                    		<h2>el subtitulo 2</h2>
+                        </hgroup>
+                    </header>    
+                    Segundo mensaje    
+                </article>
+            </section>
+            <aside id="columna">
+            <blockquote> <p id="aside">Esta es la barra lateral 1</p></blockquote>
+            <blockquote> <p id="aside">Esta es la barra lateral 2</p></blockquote>
+            <!-- contiene informacion que no es muy relevante, como publicidades, logos,etc -->
+            </aside>
+            <footer id="pie">
+            <p class="principal">&copyright</p>
+            <!-- se coloca al final puede contener informacion de copyright -->
+            </footer>
+		</div>            
+    </body>
+</html>

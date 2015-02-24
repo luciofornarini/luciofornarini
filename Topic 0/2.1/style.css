@@ -1,0 +1,49 @@
+
+<link href="style.css" rel="stylesheet">	
+<link href="normalize.css" rel="stylesheet">
+
+
+	<style type="text/css">
+		
+		.header {
+			font-size: 46px;
+		}
+
+		.footer {
+			font-size: 10px;
+		}
+
+		.nav {
+			font-size: 12px;
+		}
+
+		ul{
+			background: green;
+			margin: 12px 12px 12px 12px;
+			padding: 3px 30px 300px 3px;
+			color: blue;
+			width: 300px;
+			border-style: solid;
+			border-width: 10px;
+			border-color: yellow;
+		}
+		li{
+			color: white;
+			background: blue;
+			margin: 12px 12px 12px 12px;
+			padding: 12px 0px 12px 12px;
+			list-style: none;
+
+		}
+		<input[type="text"]{
+	box-sizing: border-box;
+	width: 100%;
+	paddin: .4em .55em;
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	border: 0;
+	border-radius: .25em;
+	outline:none
+}
+	</style>

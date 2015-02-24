@@ -1,0 +1,2 @@
+<form name="signup" method="post" action="" onsubmit="return validar()">
+<!--El evento onSubmit ejecuta un determinado código JavaScript cuando se envía un formulario. Se utiliza principalmente para evitar que un formulario sea enviado si no se verifican determinadas condiciones.-->	
