@@ -4,7 +4,7 @@ $('#action-button').click(function() {
 				   $.ajax({
 				      url: 'https://api.spotify.com/v1/search',
 				      data: {
-				      		q:'Rolling Stone',
+				      		q: $("#text").val(),
 							type:'album',
 				        	//format: 'json'
 				      },
@@ -13,11 +13,7 @@ $('#action-button').click(function() {
 
 				      success: function(data) {
 				      	console.log(data.albums.items);
-				         //var $title = $('<h1>').text(data.albums.name);
-				         //var $description = $('<p>').text(data.albums.album_type);
 				        
-				            //.append($title)
-				            //.append($description);
 
 				            $.each(data.albums.items, function(index, album)
 							{
