@@ -1,19 +1,17 @@
-	$(function(){
-	
-$('#action-button').click(function() {
-				   $.ajax({
+		function album(){
+			$.ajax({
 				      url: 'https://api.spotify.com/v1/search',
 				      data: {
 				      		q: $("#text").val(),
 							type:'album',
-				        	//format: 'json'
+				        	
 				      },
 				    	type: 'GET',
 				     	dataType: 'json',
 
 				      success: function(data) {
 				      	console.log(data.albums.items);
-				        
+				    
 
 				            $.each(data.albums.items, function(index, album)
 							{
@@ -31,8 +29,14 @@ $('#action-button').click(function() {
 							      },
 				      
 				        error: function() {
-				         $('#info').html('<p>An error has occurred</p>');
+				         $('#info').html('<p>Error</p>');
 				      },
 				   });
-				});
-});
+				
+		}
+	
+		$(function(){
+			$('#action-button').click(function() {
+						album();   
+			});
+		});

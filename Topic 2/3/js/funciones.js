@@ -1,41 +1,9 @@
-$(document).ready(function(){
-
-	function Movie(hashmap, titulo){
-
-		this.titulo = titulo;
-		this.hashmap = hashmap;
-	}
-	
-	var movieObj = new Movie("1", "Diamante");
-	//var movieObj = new Movie("2", "Crimen")
-
-
-		Movie.prototype.play = function(){
-
-			"Playing " + movieObj.titulo + "...";
-		};
-
-		Movie.prototype.stop = function(){
-			"Stop..." + movieObj.titulo;
-		};
-
-		Movie.prototype.set = function(attr, value){
-			//$(this).attr = value;
-				
-		} 
-
-		Movie.prototype.get = function(attr){
-
-		}
-		
-//comienza el observer
-
-		movieObj.className = "MovieObserver";
-
-			function ObserverList(){
+//OBSERVER LIST
+function ObserverList(){
 			  this.observerList = [];
 			}
-			 
+
+//PROTOTYPES OBSERVER
 			ObserverList.prototype.add = function( obj ){
 			  return this.observerList.push( obj );
 			};
@@ -62,14 +30,38 @@ $(document).ready(function(){
 			 
 			  return -1;
 			};
-			 
-			ObserverList.prototype.removeAt = function( index ){
-			  this.observerList.splice( index, 1 );
-			};
-			
 
 
-			function Subject(){
+//MOVIE
+function Movie(){
+	this.attributes = {
+		titulo: '',
+		fecha: ''		
+	};
+};
+
+
+
+//PROTOTYPES MOVIE
+	Movie.prototype.play = function(){
+			console.log("Playing " + this.attributes['titulo'] + "...");
+		}
+
+	Movie.prototype.stop = function(){
+			console.log("Stopped" );
+		}
+
+	Movie.prototype.set = function(attr, value){
+			this.attributes[attr] = value;
+		} 
+
+	Movie.prototype.get = function(){
+			console.log(this.attributes['titulo'] + this.attributes['fecha']);	
+		}
+
+
+//SUBJECT OBSERVER
+function Subject(){
 			  this.observers = new ObserverList();
 			}
 			 
@@ -88,8 +80,7 @@ $(document).ready(function(){
 			  }
 			};
 
-
-			// The Observer
+// The Observer
 			function Observer(){
 			  this.update = function(){
 			    // ...
@@ -97,74 +88,108 @@ $(document).ready(function(){
 			}
 
 
-			// Extend an object with an extension
-			
-			function extend( extension, obj ){
-			  for ( var key in extension ){
-			    obj[key] = extension[key];
-			  }
-			}
-			 
-			// References to our DOM elements
-			 
-			var controlCheckbox = document.getElementById( "mainCheckbox" ),
-			  addBtn = document.getElementById( "addNewObserver" ),
-			  container = document.getElementById( "observersContainer" );
-			 
-			 
-			// Concrete Subject
-			 
-			// Extend the controlling checkbox with the Subject class
-			extend( new Subject(), controlCheckbox );
-			 
-			// Clicking the checkbox will trigger notifications to its observers
-			controlCheckbox.onclick = function(){
-			  controlCheckbox.notify( controlCheckbox.checked );
-			};
-			 
-			addBtn.onclick = addNewObserver;
-			 
-			// Concrete Observer
-			 
-			function addNewObserver(){
-			 
-			  // Create a new checkbox to be added
-			  var check  = document.createElement( "input" );
-			  check.type = "checkbox";
-			 
-			  // Extend the checkbox with the Observer class
-			  extend( new Observer(), check );
-			 
-			  // Override with custom update behaviour
-			  check.update = function( value ){
-			    this.checked = value;
-			  };
-			 
-			  // Add the new observer to our list of observers
-			  // for our main subject
-			  controlCheckbox.addObserver( check );
-			 
-			  // Append the item to the container
-			  container.appendChild( check );
-			}
-//http://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript
-//The Observer Pattern
+//OBSERVER ----- evento play y stop
+// function Observer(){
 
-		
-	
-	movieObj.class = "Actor"; 
+//   this.update = function(context){
+// 	// ...
+// 	if (context == 'play') {
+// 		console.log('Playing...')
+// 		}
 
-		movieObj.class = Actor.val("Angelina Jolie")
+// 		else {
+// 			console.log('Stop')
+// 			}
+// 	}
+//   };
 
-		console.log(movieObj);
-	// var terminator = new Movie();
-	// 	terminator.set(titulo, 'terminator');
-	//  	terminator.play();
 
-	//  	console.log(terminator);	
 
-});
+function DownloadMovie(){
+}
+// Extend an object with an extension
+function extend( DownloadMovie, Movie ){
+  for ( var titulo in Movie ){
+    DownloadMovie[titulo] = Movie[titulo];
+  }
+}
+DownloadMovie.prototype.Download = function(){
+	 	console.log("Download" + this.attributes['titulo']);
+	//por que no reconoce titulo como un attribute de Movie1
+}
 
-		
-		
 
+//OTRA FUNCION EXTEND
+// function extend(destination, source) {
+//   for (var k in source) {
+//     if (source.hasOwnProperty(k)) {
+//       destination[k] = source[k];
+//     }
+//   }
+//   return destination; 
+// }
+
+
+//MIXIN
+function socialObject() {
+
+};
+function extend(socialObject, Movie) {
+  for (var k in Movie) {
+    if (Movie.hasOwnProperty(k)) {
+      socialObject[k] = Movie[k];
+    }
+  }
+  return socialObject; 
+}
+
+
+socialObject.prototype.share = function(frienName){
+	console.log("Sharing" + this.attributes['titulo'] + "with " + frienName);
+		//por que no reconoce titulo como un attribute de Movie1
+};
+
+socialObject.prototype.like = function(){
+
+};
+
+function actorClass() {
+	this.attributes= {
+		nombre: ''
+	}
+};
+actorClass.prototype.set = function(attr, value){
+			this.attributes[attr] = value;
+		}  
+
+var actor1 = new actorClass;
+
+actor1.set('nombre', 'Angelina');
+
+
+var mov1 = new Movie();
+var mov2 = new Movie();
+var ext1 = new DownloadMovie();
+ext1.Download()
+
+mov1.set('titulo', 'Diamante'); 
+mov1.set('fecha', '2000');
+
+//agrega un nuevo attributo
+mov2.set('critica', 'buena');
+
+mov2.set('fecha', '2010');
+mov2.set('titulo', 'Batman');
+
+
+
+//var observer = new Observer()
+//var movieObserver = new observerList();
+//movieObserver.add(observer);
+
+
+
+//var terminator = new Movie();
+//terminator.set = ('titulo', 'Terminator');
+//terminator.get
+//
