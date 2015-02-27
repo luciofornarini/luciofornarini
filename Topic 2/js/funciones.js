@@ -104,54 +104,49 @@ function Subject(){
 //   };
 
 
-
 function DownloadMovie(){
 }
-// Extend an object with an extension
-function extend( DownloadMovie, Movie ){
-  for ( var titulo in Movie ){
-    DownloadMovie[titulo] = Movie[titulo];
-  }
-}
+
+DownloadMovie.prototype = new Movie();
+
+// // Extend an object with an extension
+// function extend( Movie, DownloadMovie ){
+//   for ( var key in Movie ){
+//     DownloadMovie[key] = Movie[key];
+//   }
+// }
+
 DownloadMovie.prototype.Download = function(){
-	 	console.log("Download" + this.attributes['titulo']);
+	 	console.log('Downloading.. ' + this.attributes['titulo']);
 	//por que no reconoce titulo como un attribute de Movie1
 }
 
 
+
 //OTRA FUNCION EXTEND
-// function extend(destination, source) {
-//   for (var k in source) {
-//     if (source.hasOwnProperty(k)) {
-//       destination[k] = source[k];
-//     }
-//   }
-//   return destination; 
-// }
-
-
-//MIXIN (extend)
-function socialObject() {
-
-};
-function extend(socialObject, Movie) {
-  for (var k in Movie) {
-    if (Movie.hasOwnProperty(k)) {
-      socialObject[k] = Movie[k];
+function extend(destination, source) {
+  for (var k in source) {
+    if (source.hasOwnProperty(k)) {
+      destination[k] = source[k];
     }
   }
-  return socialObject; 
+  return destination; 
 }
 
 
-socialObject.prototype.share = function(frienName){
-	console.log("Sharing" + this.attributes['titulo'] + "with " + frienName);
-		//por que no reconoce titulo como un attribute de Movie1
-};
+//MIXIN (extend)
+var socialMixin = {
+	share: function(friendName){
+		console.log('Sharing ' + this.attributes['titulo'] + ' with ' + friendName);
 
-socialObject.prototype.like = function(){
+	},
+	like: function(){
 
-};
+	}
+}
+
+extend(socialMixin, Movie.prototype);
+
 
 function actorClass() {
 	this.attributes= {
@@ -170,7 +165,7 @@ actor1.set('nombre', 'Angelina');
 var mov1 = new Movie();
 var mov2 = new Movie();
 var ext1 = new DownloadMovie();
-ext1.Download()
+//ext1.Download()
 
 mov1.set('titulo', 'Diamante'); 
 mov1.set('fecha', '2000');
