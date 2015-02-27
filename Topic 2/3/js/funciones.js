@@ -130,7 +130,7 @@ DownloadMovie.prototype.Download = function(){
 // }
 
 
-//MIXIN
+//MIXIN (extend)
 function socialObject() {
 
 };
