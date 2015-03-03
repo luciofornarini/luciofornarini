@@ -16,3 +16,5 @@ function Director(){
 	Director.prototype.speak = function(){
 		console.log(this.attributes['quotes']);
 	}
+
+module.exports = Director();
