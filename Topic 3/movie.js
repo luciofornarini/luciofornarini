@@ -18,3 +18,9 @@ var Director = require('./director.js')
 	Movie.prototype.get = function(){
 			console.log(this.attributes['titulo'] + this.attributes['fecha']);	
 		}
+
+// var alien = new Movie();
+// var ridleyScott = new Director('Ridley Scott');
+// ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
+// alien.set('director', ridleyScott);
+// alien.get('director').speak();
