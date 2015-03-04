@@ -8,6 +8,5 @@ ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
 alien.set('director', ridleyScott);
 alien.get('director').speak();
 
-//https://getmango.com/blog/construyendo-modulos-de-front-end-con-browserify/
 
-
+//browserify ./index.js -o movies.js

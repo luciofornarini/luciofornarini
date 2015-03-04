@@ -15,7 +15,9 @@ var Director = require('./director.js')
 				this.attributes[attr] = value;
 		} 
 
-	Movie.prototype.get = function(){
-			console.log(this.attributes['titulo'] + this.attributes['fecha']);	
+	Movie.prototype.get = function(attr){
+
+		return = this.attributes(attr);	
 		}
+
 module.exports = Movie;

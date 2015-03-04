@@ -1,6 +1,6 @@
 function Director(nombre){
 	this.attributes = {
-			nombre: '',
+			nombre: 'nombre',
 			quotes: []		
 		};
 };
@@ -8,7 +8,11 @@ function Director(nombre){
 	Director.prototype.set = function(attr, value){
 				this.attributes[attr] = value;
 			}
+			
+	Director.prototype.get = function(attr){
 
+		return = this.attributes(attr);	
+		}
 
 	Director.prototype.speak = function(){
 			console.log(this.attributes.nombre + this.attributes.quotes);	
