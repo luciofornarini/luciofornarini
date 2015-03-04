@@ -45,19 +45,20 @@ function Movie(){
 //PROTOTYPES MOVIE
 	Movie.prototype.play = function(){
 			console.log("Playing " + this.attributes['titulo'] + "...");
-		}
+		};
 
 	Movie.prototype.stop = function(){
 			console.log("Stopped" );
-		}
+		};
 
 	Movie.prototype.set = function(attr, value){
 			this.attributes[attr] = value;
-		} 
+		}; 
 
-	Movie.prototype.get = function(){
-			console.log(this.attributes['titulo'] + this.attributes['fecha']);	
-		}
+	Movie.prototype.get = function(attr){
+
+		return this.attributes[attr];	
+		};
 
 
 //SUBJECT OBSERVER
