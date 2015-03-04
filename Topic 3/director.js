@@ -1,4 +1,4 @@
-function Director(){
+function Director(nombre){
 	this.attributes = {
 			nombre: '',
 			quotes: []		
@@ -7,14 +7,11 @@ function Director(){
 
 	Director.prototype.set = function(attr, value){
 				this.attributes[attr] = value;
-			} 
+			}
 
-	Director.prototype.get = function(){
-			console.log(this.attributes['nombre'] + this.attributes['quotes']);	
-		}
 
 	Director.prototype.speak = function(){
-		console.log(this.attributes['quotes']);
-	}
+			console.log(this.attributes.nombre + this.attributes.quotes);	
+		}
 
-module.exports = Director();
+module.exports = Director;

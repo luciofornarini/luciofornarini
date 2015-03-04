@@ -87,23 +87,6 @@ function Subject(){
 			  };
 			}
 
-
-//OBSERVER ----- evento play y stop
-// function Observer(){
-
-//   this.update = function(context){
-// 	// ...
-// 	if (context == 'play') {
-// 		console.log('Playing...')
-// 		}
-
-// 		else {
-// 			console.log('Stop')
-// 			}
-// 	}
-//   };
-
-
 function DownloadMovie(){
 }
 

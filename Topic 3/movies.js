@@ -2,7 +2,7 @@
 
 function Director(){
         this.attributes = {
-                        director: '',
+                        nombre: '',
                         quotes: []
                 };
 };
@@ -12,18 +12,18 @@ function Director(){
                         }
 
         Director.prototype.get = function(){
-                        console.log(this.attributes['director'] + this.attributes[
+                        console.log(this.attributes['nombre'] + this.attributes[
 'quotes']);
                 }
 
+
         Director.prototype.speak = function(){
-                console.log(this.attributes['quotes']);
-        }
+                        console.log(this.attributes['nombre'] + this.attributes[
+'quotes']);
+                }
 
-module.exports = Director();
-
+module.exports = Director;
 },{}],2:[function(require,module,exports){
-
 function Movie(){
         this.attributes = {
                 titulo: '',
@@ -31,6 +31,9 @@ function Movie(){
         };
 };
 
+
+
+var Director = require('./director.js')
 
 //http://spinejs.com/docs/commonjs
 
@@ -42,14 +45,56 @@ function Movie(){
                         console.log(this.attributes['titulo'] + this.attributes[
 'fecha']);
                 }
-module.exports = Movie();
-
+module.exports = Movie;
 },{"./director.js":1}],3:[function(require,module,exports){
+function Movie(){
+        this.attributes = {
+                titulo: '',
+                fecha: ''
+        };
+};
 
 
 
-var movie = require('./movie.js')
-var director = require('./director.js')
+var Director = require('./director.js')
+
+//http://spinejs.com/docs/commonjs
+
+        Movie.prototype.set = function(attr, value){
+                                this.attributes[attr] = value;
+                }
+
+        Movie.prototype.get = function(){
+                        console.log(this.attributes['titulo'] + this.attributes[
+'fecha']);
+                }
+module.exports = Movie;
+
+
+function Director(nombre){
+        this.attributes = {
+                        nombre: '',
+                        quotes: []
+                };
+};
+
+        Director.prototype.set = function(attr, value){
+                                this.attributes[attr] = value;
+                        }
+       
+
+        Director.prototype.speak = function(){
+                        console.log(this.attributes.nombre + this.attributes.quotes);   
+                }
+
+var director = require('./director.js');
+
+module.exports = Director;
+
+
+
+var Movie = require('./movie.js')
+var Director = require('./director.js')
 
 var alien = new Movie();
 var ridleyScott = new Director('Ridley Scott');
