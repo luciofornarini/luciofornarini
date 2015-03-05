@@ -6,6 +6,7 @@ function Director(nombre){
 		};
 };
 
+
 	Director.prototype.set = function(attr, value){
 				this.attributes[attr] = value;
 			};
@@ -17,17 +18,18 @@ function Director(nombre){
 
 	Director.prototype.speak = function(){
 
-			console.log(this.attributes.nombre + ' says ' + this.attributes.quotes);	
+			console.log(this.get('nombre') + ' says ' + this.get('quotes'));	
 		};
+
 
 
 module.exports = Director;
 },{}],2:[function(require,module,exports){
 
-var $ = require('./jquery-1.11.2.min.js');
+
 var Movie = require('./movie.js');
 var Director = require('./director.js');
-
+var $ = require('./jquery-1.11.2.min.js');
 
 var alien = new Movie();
 var ridleyScott = new Director('Ridley Scott');
@@ -40,8 +42,12 @@ alien.get('director').speak();
 
 function imprimirEnPantalla(){
 
+	
+	$('#div').html( ridleyScott.get('nombre') + ' says ' + ridleyScott.get('quotes'));
+	
 	//$('#div').html(' says ');
-	$('#div').html(this.attributes.nombre + ' says ' + this.attributes.quotes);
+	//$('#div').html(this.attributes.nombre + ' says ' + this.attributes.quotes);
+	//$('#div').html(alien.attributes.nombre + ' says ' + alien.attributes.quotes);
 	
 
 };
