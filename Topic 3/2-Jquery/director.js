@@ -19,9 +19,5 @@ function Director(nombre){
 			console.log(this.attributes.nombre + ' says ' + this.attributes.quotes);	
 		};
 
-$(document).ready(function(){
-
-	$('#id').html(this.attributes.nombre + ' says ' + this.attributes.quotes);
-});
 
 module.exports = Director;
