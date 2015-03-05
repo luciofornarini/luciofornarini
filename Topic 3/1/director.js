@@ -15,8 +15,8 @@ function Director(nombre){
 		};
 
 	Director.prototype.speak = function(){
-			
-			console.log(this.attributes.nombre + 'says ' + this.attributes.quotes);	
+
+			console.log(this.attributes.nombre + ' says ' + this.attributes.quotes);	
 		};
 
 module.exports = Director;

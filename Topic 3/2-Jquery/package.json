@@ -1,0 +1,12 @@
+{
+  "name": "init-json",
+  "version": "1.0.0",
+  "description": "paquete-bootcamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "luciofornarini",
+  "license": "ISC"
+}
