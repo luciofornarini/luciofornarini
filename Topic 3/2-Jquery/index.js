@@ -1,5 +1,5 @@
 
-//var jQuery = require('./jquery-1.11.2.min.js');
+var $ = require('./jquery-1.11.2.min.js');
 var Movie = require('./movie.js');
 var Director = require('./director.js');
 
@@ -15,15 +15,17 @@ alien.get('director').speak();
 
 function imprimirEnPantalla(){
 
-	$('#div').html(' says ');
+	//$('#div').html(' says ');
 	//$('#div').html(this.attributes.nombre + ' says ' + this.attributes.quotes);
-	
+	$('#div').html(this.attributes.nombre);
 
 };
 
-
-$(document).ready(function(){
-	
+$(window).load(function(){
 	imprimirEnPantalla();
 });
+
+// $(document).ready(function(){
+// 	imprimirEnPantalla();
+// });
 
