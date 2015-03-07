@@ -8,18 +8,26 @@
 
 
 	<script type="text/x-handlebars-template" id="template">
-		<ul>
-			<div>List Of Movies:</div>
-			</br>
-
-			{{#each this}}
-				<li><strong>Name</strong>: {{name}}</li>
-				<li><strong>Year</strong>: {{year}}</li>
-				<li><strong>Description</strong>: {{description}}</li>		
-				<li><strong>Genero</strong>: {{genero}}</li>	
-				</br>					
-			{{/each}}
-		</ul>
+		<div>Lista de peliculas
+		<button id="nueva">Agregar nueva pelicula</button>
+		</div>
+		<hr />
+	    <table>
+	        <tr>
+	          <th>Name</th><th>Year</th><th>Description</th><th>Genero</th>
+	        </tr>
+	            {{#each this}}
+	              <tr>
+					<td>{{name}}</td>
+					<td>{{year}}</td>
+					<td>{{description}}</td>
+					<td>{{genero}}</td>	
+					<td><button id="editar">Editar</button></td>
+					<td><button id="eliminar">Eliminar</button></td>
+				  </tr>				
+				{{/each}}      
+	    </table>
+	    <hr />
 	</script>
 </head>
 <body>
