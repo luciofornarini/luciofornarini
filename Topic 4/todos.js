@@ -6,6 +6,12 @@
 // Load the application once the DOM is ready, using `jQuery.ready`:
 $(function(){
 
+ $('#agregarMovie').click(function headerVisible(){
+    $('#addmovie').show(); 
+    $('#agregarMovie').hide();
+  });
+
+
   // Todo Model
   // ----------
 
@@ -152,6 +158,9 @@ $(function(){
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
+      "keypress #name": "namePuntero",
+      "keypress #year": "yearPuntero",
+      "keypress #description": "descriptionPuntero",
       "keypress #genero":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete"
@@ -174,9 +183,10 @@ $(function(){
 
       Todos.fetch();
 
-    
+     
 
     },
+
 
     // Re-rendering the App just means refreshing the statistics -- the rest
     // of the app doesn't change.
@@ -211,9 +221,22 @@ $(function(){
     // If you hit return in the main input field, create new **Todo** model,
     // persisting it to *localStorage*.
   
+    namePuntero: function(name) {
+      if (name.keyCode !=13) return;
+      $('#year').focus();
+    },
 
+    yearPuntero: function(year) {
+      if (year.keyCode !=13) return;
+      $('#description').focus();
+    },
 
-    createOnEnter: function(e) {
+    descriptionPuntero: function(description) {
+      if (description.keyCode !=13) return;
+      $('#genero').focus();
+    },
+
+     createOnEnter: function(e) {
 
       var name = $('#name').val();
       var year = $('#year').val();
@@ -223,13 +246,15 @@ $(function(){
       if (e.keyCode != 13) return;
       if (!this.input.val()) return;
 
-      Todos.create({title: 'Name: ' + name + 'Year:' + year + 'Description:' + description + 'Genero:' + genero });
-
-      //Todos.create({title: this.input.val()});
+      Todos.create({title: 'Name: ' + name + '\n' + 'Year: ' + year + '\n' + 'Description: ' + description + '\n' + 'Genero: ' + genero + '\n'});
 
       //placeholder
-      this.input.val('');
+      $('#name').val('');
+      $('#year').val('');
+      $('#description').val('');
+      $('#genero').val('');
     },
+
 
     // Clear all done todo items, destroying their models.
     clearCompleted: function() {

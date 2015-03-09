@@ -14,15 +14,18 @@
 
     <header>
       <h1>All the movies</h1>
-      <input id="name" type="text" placeholder="Name">
-      <input id="year" type="text" placeholder="Year">
-      <input id="description" type="text" placeholder="Description">
-      <input id="genero" type="text" placeholder="Genero">
+      <article id="addmovie" style="display:none">
+        <input id="name" type="text" placeholder="Name">
+        <input id="year" type="text" placeholder="Year">
+        <input id="description" type="text" placeholder="Description">
+        <input id="genero" type="text" placeholder="Genero">
+      </article>
+        <button id="agregarMovie">Add Movie</button>
     </header>
 
     <section id="main">
       <input id="toggle-all" type="checkbox">
-      <label for="toggle-all">Mark all as complete</label>
+      <label for="toggle-all">Select all the movies</label>
       <ul id="todo-list"></ul>
     </section>
 
