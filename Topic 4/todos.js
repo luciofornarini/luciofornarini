@@ -152,7 +152,7 @@ $(function(){
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-      "keypress #name":  "createOnEnter",
+      "keypress #genero":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete"
     },
@@ -162,7 +162,7 @@ $(function(){
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 
-      this.input = this.$("#name");
+      this.input = this.$("#genero");
       this.allCheckbox = this.$("#toggle-all")[0];
 
       this.listenTo(Todos, 'add', this.addOne);
@@ -210,11 +210,24 @@ $(function(){
 
     // If you hit return in the main input field, create new **Todo** model,
     // persisting it to *localStorage*.
+  
+
+
     createOnEnter: function(e) {
+
+      var name = $('#name').val();
+      var year = $('#year').val();
+      var description = $('#description').val();
+      var genero = $('#genero').val();
+
       if (e.keyCode != 13) return;
       if (!this.input.val()) return;
 
-      Todos.create({title: this.input.val()});
+      Todos.create({title: 'Name: ' + name + 'Year:' + year + 'Description:' + description + 'Genero:' + genero });
+
+      //Todos.create({title: this.input.val()});
+
+      //placeholder
       this.input.val('');
     },
 
