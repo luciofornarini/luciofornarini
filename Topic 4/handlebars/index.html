@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Topic 4</title>
+	<script type="text/javascript" src="handlebars-v3.0.0.js"></script>
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="backbone.js"></script>
+	<script type="text/javascript" src="movies.js"></script>
+
+
+	<script type="text/x-handlebars-template" id="template">
+		
+		<div>Lista de peliculas
+			<button id="nueva">Agregar nueva pelicula</button>
+			<hr />
+		    <table>
+		        <tr>
+		          <th>Name</th><th>Year</th><th>Description</th><th>Genero</th>
+		        </tr>
+		            {{#each this}}
+		              <tr>
+						<td>{{name}}</td>
+						<td>{{year}}</td>
+						<td>{{description}}</td>
+						<td>{{genero}}</td>	
+						<td><button id="editar">Editar</button></td>
+						<td><button id="eliminar">Eliminar</button></td>
+					  </tr>				
+					{{/each}}      
+		    </table>
+		    <hr />
+	    </div>
+
+
+
+	   
+	</script>
+</head>
+<body>
+	
+	<div id="content"></div>
+		
+</body>
+</html>

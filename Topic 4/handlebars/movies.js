@@ -2,8 +2,6 @@ $(document).ready(function(){
 
 		var fuente = $('#template').html();
 		var plantilla = Handlebars.compile(fuente);
-		
-		//var datos = {usuario : ' Lucio Fornarini'};
 
 		var Movie = [
 			{
