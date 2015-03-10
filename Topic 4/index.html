@@ -5,12 +5,12 @@
 <head>
   <meta charset="utf-8">
   <title>Topic 4</title>
-  <link rel="stylesheet" href="todos.css"/>
+  <link rel="stylesheet" href="Movies.css"/>
 </head>
 
 <body>
 
-  <div id="todoapp">
+  <div id="Movieapp">
 
     <header>
       <h1>All the movies</h1>
@@ -26,12 +26,12 @@
     <section id="main">
       <input id="toggle-all" type="checkbox">
       <label for="toggle-all">Select all the movies</label>
-      <ul id="todo-list"></ul>
+      <ul id="Movie-list"></ul>
     </section>
 
     <footer>
       <a id="clear-completed">Clear completed</a>
-      <div id="todo-count"></div>
+      <div id="Movie-count"></div>
     </footer>
 
   </div>
@@ -41,7 +41,7 @@
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
   <script src="backbone.localStorage.js"></script>
-  <script src="todos.js"></script>
+  <script src="Movies.js"></script>
 
   <!-- Templates -->
 
@@ -58,7 +58,7 @@
     <% if (done) { %>
       <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
     <% } %>
-    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+    <div class="Movie-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
   </script>
 
   </body>
