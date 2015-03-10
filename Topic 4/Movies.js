@@ -21,7 +21,8 @@ $(function(){
     // Default attributes for the Movie item.
     defaults: function() {
       return {
-        title: "empty Movie...",
+        title: "",
+        //year: "",
         order: Movies.nextOrder(),
         done: false
       };
@@ -242,6 +243,10 @@ $(function(){
       if (!this.input.val()) return;
 
       Movies.create({title: 'Name: ' + name + '\n' + 'Year: ' + year + '\n' + 'Description: ' + description + '\n' + 'Genero: ' + genero + '\n'});
+      // Movies.create({title: 'Name: ' + name});
+      // Movies.create({year: 'Year: ' + year});
+
+
 
       //placeholder
       $('#name').val('');
