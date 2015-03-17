@@ -1,65 +1,91 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Topic 4</title>
-  <link rel="stylesheet" href="Movies.css"/>
+	<title>Topic 4</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
-
 <body>
+		<!--
+		<script id="add-movie" type="text/x-handlebars-template">
+			
+		</script>
+		-->
 
-  <div id="Movieapp">
+			<div id="lista">Lista de peliculas 
+				<button id="nueva">Agregar nueva pelicula</button>
+					<form id="add-movie" style="display:none">
+				        <input id="name" type="text" placeholder="Name">
+				        <input id="year" type="text" placeholder="Year">
+				        <input id="description" type="text" placeholder="Description">
+				        <input id="genero" type="text" placeholder="Genero">
+				        <input type="submit" id="guardarnueva" value="Guardar" />
+				    </form>
+			</div>
+		
+	
+			
+	<div id="content">
 
-    <header>
-      <h1>All the movies</h1>
-      <article id="addmovie" style="display:none">
-        <input id="name" type="text" placeholder="Name">
-        <input id="year" type="text" placeholder="Year">
-        <input id="description" type="text" placeholder="Description">
-        <input id="genero" type="text" placeholder="Genero">
-      </article>
-        <button id="agregarMovie">Add Movie</button>
-    </header>
+	</div>
+			
+		<script id="template-list" type="text/x-handlebars-template" >
+				<hr />
+			    <table>
+				    {{#each this}}
+				        <tr>
+				          <td><strong>Name:</strong></td>
+				          <td> 
+				          	{{title}}
+				          	<input id="title" type="text" value="{{title}}" style="display:none"/>
+				          </td>
+				          
+				        </tr>
+				        <tr>
+				          <td><strong>Year:</strong></td>
+				          <td>
+							{{year}}
+							<input id="year" type="text" value="{{year}}" style="display:none"/>
+				          </td>
+				          
+				        </tr>
+				        <tr>
+				          <td><strong>Description:</strong></td>
+				          <td>
+				          	{{description}}
+				          	<input id="description" type="text" value="{{description}}" style="display:none"/>
+				          </td>
+				          
+				        </tr>
+				        <tr>
+				          <td><strong>Genero:</td>
+				          <td>
+							{{genero}}
+							<input id="genero" type="text" value="{{genero}}" style="display:none"/>
+				          </td>
+				          
+				        </tr>
+			
+						<td><input type="button" class="eliminar" value="Eliminar"/><hr /></td>
+						<td><input type="button" id="editar" value="Editar"/><hr /></td>  			
+					{{/each}}    
 
-    <section id="main">
-      <input id="toggle-all" type="checkbox">
-      <label for="toggle-all">Select all the movies</label>
-      <ul id="Movie-list"></ul>
-    </section>
+			    </table>
+			 
+		</script>
 
-    <footer>
-      <a id="clear-completed">Clear completed</a>
-      <div id="Movie-count"></div>
-    </footer>
+	<script id="edit-movie" type="text/x-handlebars-template">
 
-  </div>
-
-  <script src="json2.js"></script>
-  <script src="jquery-1.11.2.min.js"></script>
-  <script src="underscore.js"></script>
-  <script src="backbone.js"></script>
-  <script src="backbone.localStorage.js"></script>
-  <script src="Movies.js"></script>
-
-  <!-- Templates -->
-
-  <script type="text/template" id="item-template">
-    <div class="view">
-      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-      <ul><%- title %></ul>
-      <a class="destroy"></a>
-    </div>
-    <input class="edit" type="text" value="<%- title %>" />
-  </script>
-
-  <script type="text/template" id="stats-template">
-    <% if (done) { %>
-      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
-    <% } %>
-    <div class="Movie-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
-  </script>
-
-  </body>
+	</script>
+	
+	<input type="button" id="editar" value="Editar"/>
+		
+		
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>	
+	<script type="text/javascript" src="handlebars-v3.0.0.js"></script>
+	<script type="text/javascript" src="underscore.js"></script>
+	<script type="text/javascript" src="backbone.js"></script>
+	<script type="text/javascript" src="backbone.localStorage.js"></script>
+	<script type="text/javascript" src="movies.js"></script>	
+</body>
 </html>

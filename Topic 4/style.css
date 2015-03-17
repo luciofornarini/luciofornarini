@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  background: #FFF8DC ;
+  color: #333333;
+  width: 1024px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  text-align: center;
+}
+
+#lista{
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+}

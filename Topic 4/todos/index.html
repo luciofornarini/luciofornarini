@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Topic 4</title>
+  <link rel="stylesheet" href="Movies.css"/>
+</head>
+
+<body>
+
+  <div id="Movieapp">
+
+    <header>
+      <h1>All the movies</h1>
+      <article id="addmovie" style="display:none">
+        <input id="name" type="text" placeholder="Name">
+        <input id="year" type="text" placeholder="Year">
+        <input id="description" type="text" placeholder="Description">
+        <input id="genero" type="text" placeholder="Genero">
+      </article>
+        <button id="agregarMovie">Add Movie</button>
+    </header>
+
+    <section id="main">
+      <input id="toggle-all" type="checkbox">
+      <label for="toggle-all">Select all the movies</label>
+      <ul id="Movie-list"></ul>
+    </section>
+
+    <footer>
+      <a id="clear-completed">Clear completed</a>
+      <div id="Movie-count"></div>
+    </footer>
+
+  </div>
+
+  <script src="json2.js"></script>
+  <script src="jquery-1.11.2.min.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script src="backbone.localStorage.js"></script>
+  <script src="Movies.js"></script>
+
+  <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <ul><%- title %></ul>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+    <% } %>
+    <div class="Movie-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+  </script>
+
+  </body>
+</html>

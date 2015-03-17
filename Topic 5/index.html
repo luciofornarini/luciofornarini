@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+    <head>
+        <title>Topic 5</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+      
+    </head>
+    <body ng-controller="moviesController">
+    	<h1>List of movies</h1>
+	       
+	          <div class="wrapper">
+	            <div class="movie-item" ng-repeat="movie in Movies | orderBy:'title'">
+	               <div class="title"> <strong> Title: </strong> {{movie.title}} </div> 
+	               <div class="year"> <strong> Year: </strong> {{movie.year}} </div> 
+	               <div class="description"> Description:  {{movie.description}} </div> 
+	               <div class="genero"> Genero: {{movie.genero}} </div> 
+	           	</div>     
+	          </div>
+	</br>
+	<center><button ng-click="ShowForm()" ng-hide="formVisibility">Add Movie</button></center>
+
+	<div ng-show="formVisibility" class="wrapper">
+		<h2>Add a movie</h2>
+		Title: <input type="text" ng-model="newMovie.title"></input></br>
+		Year: <input type="text" ng-model="newMovie.year"></input></br>
+		Description: <input type="text" ng-model="newMovie.description"></input></br>
+		Genero: <input type="text" ng-model="newMovie.genero"></input></br>
+		<button ng-click="Save()">Save</button>
+	</div>
+
+        <script type="text/javascript" src="angular.min.js" ></script>
+        <script type="text/javascript" src="funciones.js"></script>
+    </body>
+
+</html>
