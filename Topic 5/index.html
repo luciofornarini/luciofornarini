@@ -16,10 +16,15 @@
 	               <div class="year"> <strong> Year: </strong> {{movie.year}} </div> 
 	               <div class="description"> Description:  {{movie.description}} </div> 
 	               <div class="genero"> Genero: {{movie.genero}} </div> 
+	               <a href="" ng-click="deleteMovie($index)">Delete</a>
+	            	
 	           	</div>     
 	          </div>
 	</br>
-	<center><button ng-click="ShowForm()" ng-hide="formVisibility">Add Movie</button></center>
+	<center>
+		<button ng-click="ShowForm()" ng-hide="formVisibility">Add Movie</button>
+		<button ng-click="ShowForm1()" ng-hide="formVisibility1">Edit Movie</button>
+	</center>
 
 	<div ng-show="formVisibility" class="wrapper">
 		<h2>Add a movie</h2>
@@ -28,6 +33,16 @@
 		Description: <input type="text" ng-model="newMovie.description"></input></br>
 		Genero: <input type="text" ng-model="newMovie.genero"></input></br>
 		<button ng-click="Save()">Save</button>
+	</div>
+
+
+	<div ng-show="formVisibility1" class="wrapper">
+		<h2>Edit a movie</h2>
+		Title: <input type="text" ng-model="newMovie.title" value="{{title}}"></input></br>
+		Year: <input type="text" ng-model="newMovie.year" value="{{year}}"></input></br>
+		Description: <input type="text" ng-model="newMovie.description" value="{{description}}"></input></br>
+		Genero: <input type="text" ng-model="newMovie.genero" value="{{genero}}"></input></br>
+		<button ng-click="SaveEdit()">Save</button>
 	</div>
 
         <script type="text/javascript" src="angular.min.js" ></script>

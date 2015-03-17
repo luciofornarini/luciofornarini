@@ -14,6 +14,10 @@ $scope.formVisibility=false;
 console.log($scope.formVisibility)
 }
 
+$scope.SaveEdit=function(){
+//funcion del boton saveedit
+}
+
 
 $scope.formVisibility = false;
 
@@ -22,5 +26,17 @@ $scope.ShowForm=function(){
 	console.log($scope.formVisibility)
 }
 
+$scope.formVisibility1 = false;
+
+$scope.ShowForm1=function(){
+	$scope.formVisibility1=true;
+	console.log($scope.formVisibility1)
+}
+
+$scope.deleteMovie = function(index){
+	$scope.Movies.splice(index, 1)
+}
     }]);
+
+
 
