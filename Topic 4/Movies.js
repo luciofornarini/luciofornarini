@@ -68,13 +68,15 @@ window.App ={
 			var html = plantilla();
 			this.$el.html(html);
 		}
-		// events: {
-		// 	'click .saveNew' : 'save'
-		// },	
-		// save: function(){
-		// .-object( .-values)	
+
+	 	// events:{
+	 	// 	'click .saveNew' : 'save'
+	 	// },	
+	 	// save: function(){
+	 	// _.object(App.Models.Movie,  _.values())	
+	 	// this.model.save();
 		// }
-		//this.model.save();
+	
 
 	});
 
@@ -87,10 +89,10 @@ window.App ={
 			this.$el.html(html);
 		}
 		// events: {
-		// 	'click .saveEdit' : 'update'
+		// 	'click .update' : 'update'
 		// },	
 		// update: function(){
-		// .-object( .-values)		
+		// _.object(App.Models.Movie, _.values)		
 		// }
 
 	});
@@ -102,6 +104,13 @@ window.App ={
 				year: 2014, 
 				description: 'Cuatro policías corruptos y cerveza barata.', 
 				genero: 'Comedia, Suspenso'
+			},
+			{
+				id: 2, 
+				title: 'Cinderella', 
+				year: 2015, 
+				description: 'When her father unexpectedly passes away.', 
+				genero: 'Ciencia ficción'
 			}
 		]);
 
