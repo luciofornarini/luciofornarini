@@ -46,14 +46,22 @@ window.App ={
 			'click .edit': 		'edit',
 			'click .new': 		'add'
 		},
-		// delete: function(id){
-		// 	var model = movieCollection.get(id);
-		// 	model.destroy();
-		// 	movieCollection.remove(model);
-		// },
-		edit: function(){
+		delete: function(id){
+			
+			var id = movieCollection.get[id];
+			alert(id);
+
+			// var model = this.movieCollection.get(id);
+			// model.destroy();
+			// movieCollection.remove(model);
+		},
+		edit: function(id){
 			var edit = new App.Views.EditMovie();
 			edit.render();
+
+			//var editid = this.movieCollection.get(id);
+			
+			//console.log(editid);
 		},
 		add: function(){
 			var add = new App.Views.AddMovie();
@@ -72,19 +80,19 @@ window.App ={
 			this.$el.html(html);
 		},
 
-	 	// events:{
-	 	// 	'click .saveNew' : 'save'
-	 	// },	
-	 	// save: function(){
-	 	// 	var movie = new App.Models.Movie({
-	 	// 		_.object(App.Models.Movie, _.values());		
-	 	// }); 
-	 	// 
-		// }
-		// movieCollection.add(movie)
-		// movie.save();	
-	
+	 	events:{
+	 		'click .saveNew' : 'save'
+	 	},	
+	 	save: function(){
+	 	var movie = new App.Models.Movie({
+	 	//		_.object(App.Models.Movie, _.values());		
+	 	});
 
+		movieCollection.add(movie)
+		movie.save();
+		console.log(movie);	
+	 	}	
+	 	
 	});
 
 	App.Views.EditMovie = Backbone.View.extend({
@@ -95,6 +103,10 @@ window.App ={
 			var html = plantilla();
 			this.$el.html(html);
 		},
+		// initialize: function(){
+		// 	var movie = movieCollection.get(id);
+		// 	console.log(movie);
+		// }
 		// events: {
 		// 	'click .update' : 'update'
 		// },	
@@ -145,3 +157,6 @@ window.App ={
 
 
 
+//el edit no me reconoce los valeros del value
+//el delete, edit, no reconocen el id
+//el add no crea una nueva movie

@@ -48,14 +48,16 @@
 						<td><input type="button" class="delete" value="Delete"/><hr /></td>
 						<td><input type="button" class="edit" value="Edit"/><hr /></td> 
 					{{/each}}    
+
 			    </table>
 		</script>
 
 		<script id="add-movie" type="text/x-handlebars-template">
 			<form id="add-movie-form">
 				<div id="addmovie">
+					<strong>Adding movie...</strong></br>
 					<input id="id" type="text" placeholder="Id"></br>
-			        <input id="name" type="text" placeholder="Name"></br>
+			        <input id="title" type="text" placeholder="Title"></br>
 			        <input id="year" type="text" placeholder="Year"></br>
 			        <input id="description" type="text" placeholder="Description"></br>
 			        <input id="genre" type="text" placeholder="Genre"></br>
@@ -67,11 +69,12 @@
 		<script id="edit-movie" type="text/x-handlebars-template">
 			<form id="edit-movie-form">
 				<div id="editmovie">
-					<input id="id" type="text" value="{{id}}"/></br>
-					<input id="title" type="text" value="{{title}}"/></br>
-					<input id="year" type="text" value="{{year}}"/></br>
-		  			<input id="description" type="text" value="{{description}}"/></br>
-		  			<input id="genre" type="text" value="{{genre}}"/></br>
+					<strong>Editing movie...</strong></br>
+					Id: <input id="editid" type="text" value="{{id}}"/></br>
+					Name: <input id="title" type="text" value="{{title}}"/></br>
+					Year: <input id="year" type="text" value="{{year}}"/></br>
+		  			Description: <input id="description" type="text" value="{{description}}"/></br>
+		  			Genre: <input id="genre" type="text" value="{{genre}}"/></br>
 		  			<input type="submit" class="update" value="Update"/>
 		  		</div>
 		  	</form>	
