@@ -1,40 +1,28 @@
 $(function(){
 
-	 $('#nueva').click(function addvisible(){
-	    $('#add-movie').show(); 
-	    $('#nueva').hide();
-	    $('#guardarnueva').show();
+window.App ={
+	Models: {},
+	Collections: {},
+	Views: {},
+	Router: {}
+}; 
 
-	  });
-
-	  $('#guardarnueva').click(function visible(){
-	    $('#add-edit-movie').hide(); 
-	    $('#nueva').show();
-	    $('#guardarnueva').hide();    
-	  });
-
-	  $('#editar').click(function(){
-	  	$('#year').show();
-	  	$('#title').show();
-	  	$('#description').show();
-	  	$('#genero').show();
-	  })
-
-	var Movie = Backbone.Model.extend({
+	App.Models.Movie = Backbone.Model.extend({
 	  default:{
-	      title: '',
-	      year: '',
-	      description: '',
-	      genero: ''
+	  	id: '',		
+		title: '',
+		year: '',
+		description: '',
+		genero: ''
 	  }
 	});
 
-	var Movies = Backbone.Collection.extend({
-		model: Movie,
+	App.Collections.Movies = Backbone.Collection.extend({
+		model: App.Models.Movie,
 		LocalStorage: new Backbone.LocalStorage("allmovies")
 	});
 
-	var MovieView = Backbone.View.extend({
+	App.Views.Movie = Backbone.View.extend({
 	  el: '#content',
 	  render: function(){
 	    var source = $('#template-list').html();
@@ -44,8 +32,7 @@ $(function(){
 	  }
 	});
 
-
-	var MoviesView = Backbone.View.extend({
+	App.Views.Movies = Backbone.View.extend({
 		el: '#content',
 		render: function(){
 			var fuente = $('#template-list').html();
@@ -53,24 +40,89 @@ $(function(){
 			var html = plantilla(this.collection.toJSON());
 			this.$el.html(html);
 		}
+		// events: {
+		// 	'click .delete': 	'delete',
+		// 	'click .edit': 		'edit',
+		// 	'click .new': 		'new'
+		// },	
+		// delete: function (){
+		// 	 var movie = movieCollection.get(id);
+		//   	 movie.destroy();
+		//   	 movieCollection.remove();
+		// },
+		// edit: function(){
+
+		// },
+		// new: function(){
+			
+		// }
+		
 
 	});
 
+	App.Views.AddMovie = Backbone.View.extend({
+		el: '#content',
+		render: function(){
+			var fuente = $('#add-movie').html();
+			var plantilla = Handlebars.compile(fuente);
+			var html = plantilla();
+			this.$el.html(html);
+		}
+		// events: {
+		// 	'click .saveNew' : 'save'
+		// },	
+		// save: function(){
+		// .-object( .-values)	
+		// }
+		//this.model.save();
 
-	var peli1 = new Movie({title: 'Redirected', year: '2014', description: 'Cuatro amigos ingleses que se dedican a robar se quedan tirados en Lituania. Para volver a casa tropiezan con graves dificultades: las diferencias culturales, el trato con criminales, prostitutas, policías corruptos y cerveza barata.', genero: 'Comedia, Suspenso'});
+	});
 
-	var lista = new Movies([peli1]);
+	App.Views.EditMovie = Backbone.View.extend({
+		el: '#content',
+		render: function(){
+			var fuente = $('#edit-movie').html();
+			var plantilla = Handlebars.compile(fuente);
+			var html = plantilla(this.model.toJSON());
+			this.$el.html(html);
+		}
+		// events: {
+		// 	'click .saveEdit' : 'update'
+		// },	
+		// update: function(){
+		// .-object( .-values)		
+		// }
 
-	var AppRouter = Backbone.Router.extend({
+	});
+
+	movieCollection = new App.Collections.Movies([
+			{
+				id: 1, 
+				title: 'Redirected', 
+				year: 2014, 
+				description: 'Cuatro policías corruptos y cerveza barata.', 
+				genero: 'Comedia, Suspenso'
+			}
+		]);
+
+
+	App.Router.AppRouter = Backbone.Router.extend({
+		//el: '#content',
 		routes:{
 			'' : 'index',
 		},
 		index: function(){
-			var moviesView = new MoviesView({collection: lista});
+			var moviesView = new App.Views.Movies({collection: movieCollection});
 			moviesView.render();
 		}
 
 	});
-	new AppRouter();
+	new App.Router.AppRouter();
 	Backbone.history.start();
+
+	
 });
+
+
+
+//.-object .-values

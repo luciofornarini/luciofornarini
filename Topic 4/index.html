@@ -6,30 +6,15 @@
 
 </head>
 <body>
-		<!--
-		<script id="add-movie" type="text/x-handlebars-template">
-			
-		</script>
-		-->
-
-			<div id="lista">Lista de peliculas 
-				<button id="nueva">Agregar nueva pelicula</button>
-					<form id="add-movie" style="display:none">
-				        <input id="name" type="text" placeholder="Name">
-				        <input id="year" type="text" placeholder="Year">
-				        <input id="description" type="text" placeholder="Description">
-				        <input id="genero" type="text" placeholder="Genero">
-				        <input type="submit" id="guardarnueva" value="Guardar" />
-				    </form>
-			</div>
-		
-	
 			
 	<div id="content">
 
-	</div>
-			
+	</div>	
+
 		<script id="template-list" type="text/x-handlebars-template" >
+			<div id="lista">List of movies 
+				<button class="new">Add new movie</button>
+			</div>			
 				<hr />
 			    <table>
 				    {{#each this}}
@@ -37,7 +22,6 @@
 				          <td><strong>Name:</strong></td>
 				          <td> 
 				          	{{title}}
-				          	<input id="title" type="text" value="{{title}}" style="display:none"/>
 				          </td>
 				          
 				        </tr>
@@ -45,7 +29,6 @@
 				          <td><strong>Year:</strong></td>
 				          <td>
 							{{year}}
-							<input id="year" type="text" value="{{year}}" style="display:none"/>
 				          </td>
 				          
 				        </tr>
@@ -53,7 +36,6 @@
 				          <td><strong>Description:</strong></td>
 				          <td>
 				          	{{description}}
-				          	<input id="description" type="text" value="{{description}}" style="display:none"/>
 				          </td>
 				          
 				        </tr>
@@ -61,24 +43,37 @@
 				          <td><strong>Genero:</td>
 				          <td>
 							{{genero}}
-							<input id="genero" type="text" value="{{genero}}" style="display:none"/>
 				          </td>
-				          
 				        </tr>
-			
-						<td><input type="button" class="eliminar" value="Eliminar"/><hr /></td>
-						<td><input type="button" id="editar" value="Editar"/><hr /></td>  			
+						<td><input type="button" class="delete" value="Delete"/><hr /></td>
+						<td><input type="button" class="edit" value="Edit"/><hr /></td> 
 					{{/each}}    
-
 			    </table>
-			 
 		</script>
 
-	<script id="edit-movie" type="text/x-handlebars-template">
+		<script id="add-movie" type="text/x-handlebars-template">
+			<form id="add-movie-form">
+				<input id="id" type="text" placeholder="Id">
+		        <input id="name" type="text" placeholder="Name">
+		        <input id="year" type="text" placeholder="Year">
+		        <input id="description" type="text" placeholder="Description">
+		        <input id="genero" type="text" placeholder="Genre">
+		        <input type="submit" class="saveNew" value="Save" />
+		    </form>
+		</script>	
 
-	</script>
+		<script id="edit-movie" type="text/x-handlebars-template">
+			<form id="edit-movie-form">
+				<input id="id" type="text" value="{{id}}"/>
+				<input id="title" type="text" value="{{title}}"/>
+				<input id="year" type="text" value="{{year}}"/>
+	  			<input id="description" type="text" value="{{description}}"/>
+	  			<input id="genero" type="text" value="{{genero}}"/>
+	  			<input type="submit" class="saveEdit" value="Save"/>
+	  		</form>	
+		</script>
 	
-	<input type="button" id="editar" value="Editar"/>
+	
 		
 		
 	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>	
