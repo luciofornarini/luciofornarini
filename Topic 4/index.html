@@ -40,9 +40,9 @@
 				          
 				        </tr>
 				        <tr>
-				          <td><strong>Genero:</td>
+				          <td><strong>Genre:</td>
 				          <td>
-							{{genero}}
+							{{genre}}
 				          </td>
 				        </tr>
 						<td><input type="button" class="delete" value="Delete"/><hr /></td>
@@ -53,24 +53,28 @@
 
 		<script id="add-movie" type="text/x-handlebars-template">
 			<form id="add-movie-form">
-				<input id="id" type="text" placeholder="Id">
-		        <input id="name" type="text" placeholder="Name">
-		        <input id="year" type="text" placeholder="Year">
-		        <input id="description" type="text" placeholder="Description">
-		        <input id="genero" type="text" placeholder="Genre">
-		        <input type="submit" class="saveNew" value="Save" />
+				<div id="addmovie">
+					<input id="id" type="text" placeholder="Id"></br>
+			        <input id="name" type="text" placeholder="Name"></br>
+			        <input id="year" type="text" placeholder="Year"></br>
+			        <input id="description" type="text" placeholder="Description"></br>
+			        <input id="genre" type="text" placeholder="Genre"></br>
+			        <input type="submit" class="saveNew" value="Save" />
+			    </div>    
 		    </form>
 		</script>	
 
 		<script id="edit-movie" type="text/x-handlebars-template">
 			<form id="edit-movie-form">
-				<input id="id" type="text" value="{{id}}"/>
-				<input id="title" type="text" value="{{title}}"/>
-				<input id="year" type="text" value="{{year}}"/>
-	  			<input id="description" type="text" value="{{description}}"/>
-	  			<input id="genero" type="text" value="{{genero}}"/>
-	  			<input type="submit" class="saveEdit" value="Save"/>
-	  		</form>	
+				<div id="editmovie">
+					<input id="id" type="text" value="{{id}}"/></br>
+					<input id="title" type="text" value="{{title}}"/></br>
+					<input id="year" type="text" value="{{year}}"/></br>
+		  			<input id="description" type="text" value="{{description}}"/></br>
+		  			<input id="genre" type="text" value="{{genre}}"/></br>
+		  			<input type="submit" class="update" value="Update"/>
+		  		</div>
+		  	</form>	
 		</script>
 	
 	

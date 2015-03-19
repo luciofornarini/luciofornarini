@@ -13,7 +13,7 @@ window.App ={
 		title: '',
 		year: '',
 		description: '',
-		genero: ''
+		genre: ''
 	  }
 	});
 
@@ -39,24 +39,27 @@ window.App ={
 			var plantilla = Handlebars.compile(fuente);
 			var html = plantilla(this.collection.toJSON());
 			this.$el.html(html);
-		}
-		// events: {
-		// 	'click .delete': 	'delete',
-		// 	'click .edit': 		'edit',
-		// 	'click .new': 		'new'
-		// },	
-		// delete: function (){
-		// 	 var movie = movieCollection.get(id);
-		//   	 movie.destroy();
-		//   	 movieCollection.remove();
-		// },
-		// edit: function(){
+		},
 
+		events:{
+			'click .delete': 	'delete',
+			'click .edit': 		'edit',
+			'click .new': 		'add'
+		},
+		// delete: function(id){
+		// 	var model = movieCollection.get(id);
+		// 	model.destroy();
+		// 	movieCollection.remove(model);
 		// },
-		// new: function(){
-			
-		// }
-		
+		edit: function(){
+			var edit = new App.Views.EditMovie();
+			edit.render();
+		},
+		add: function(){
+			var add = new App.Views.AddMovie();
+			add.render();
+		}
+
 
 	});
 
@@ -67,15 +70,19 @@ window.App ={
 			var plantilla = Handlebars.compile(fuente);
 			var html = plantilla();
 			this.$el.html(html);
-		}
+		},
 
 	 	// events:{
 	 	// 	'click .saveNew' : 'save'
 	 	// },	
 	 	// save: function(){
-	 	// _.object(App.Models.Movie,  _.values())	
-	 	// this.model.save();
+	 	// 	var movie = new App.Models.Movie({
+	 	// 		_.object(App.Models.Movie, _.values());		
+	 	// }); 
+	 	// 
 		// }
+		// movieCollection.add(movie)
+		// movie.save();	
 	
 
 	});
@@ -85,37 +92,41 @@ window.App ={
 		render: function(){
 			var fuente = $('#edit-movie').html();
 			var plantilla = Handlebars.compile(fuente);
-			var html = plantilla(this.model.toJSON());
+			var html = plantilla();
 			this.$el.html(html);
-		}
+		},
 		// events: {
 		// 	'click .update' : 'update'
 		// },	
 		// update: function(){
-		// _.object(App.Models.Movie, _.values)		
+		// 		this.model.set({
+		// 		_.object(App.Models.Movie, _.values());	
+		// })	
+		// 
+		// this.model.save();		
 		// }
 
 	});
 
-	movieCollection = new App.Collections.Movies([
+	var movieCollection = new App.Collections.Movies([
 			{
 				id: 1, 
 				title: 'Redirected', 
 				year: 2014, 
-				description: 'Cuatro policías corruptos y cerveza barata.', 
-				genero: 'Comedia, Suspenso'
+				description: 'Cuatro policias corruptos y cerveza barata.', 
+				genre: 'Comedia, Suspenso'
 			},
 			{
 				id: 2, 
 				title: 'Cinderella', 
 				year: 2015, 
 				description: 'When her father unexpectedly passes away.', 
-				genero: 'Ciencia ficción'
+				genre: 'Ciencia ficcion'
 			}
 		]);
 
 
-	App.Router.AppRouter = Backbone.Router.extend({
+	App.Router.Route = Backbone.Router.extend({
 		//el: '#content',
 		routes:{
 			'' : 'index',
@@ -126,7 +137,7 @@ window.App ={
 		}
 
 	});
-	new App.Router.AppRouter();
+	new App.Router.Route();
 	Backbone.history.start();
 
 	
@@ -134,4 +145,3 @@ window.App ={
 
 
 
-//.-object .-values
